@@ -9,12 +9,13 @@ import { RecipeService } from './recipe.service';
   providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
-  currentSelectedRecipe = new Recipe('Pizza', 'Tasty Italian cuisine!', 'https://media.istockphoto.com/photos/cheesy-pepperoni-pizza-picture-id938742222')
-  constructor() { }
-  onSelect(recipe: Recipe){
-    this.currentSelectedRecipe=recipe;
-  }
+  selectedRecipe!: Recipe;
+  constructor(private recipeService: RecipeService) { }
+
   ngOnInit(): void {
+    this.recipeService.recipeSelected.subscribe((recipe:Recipe)=>{
+      this.selectedRecipe = recipe;
+    })
   }
 
 }
