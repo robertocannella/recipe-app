@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './recipes/landing-page/landing-page.component';
 import { Router } from '@angular/router';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './recipes/recipe.service';
 
 
 @NgModule({
