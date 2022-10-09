@@ -30,6 +30,10 @@ export class RecipeService{
         // return a copy
         return this.recipes.slice();
     }
+    getRecipe(id: number){
+        // return a the exact object for editing
+        return this.recipes[id];
+    }
     addIngredients(ingredients: Ingredient[]){
         this.shoppingListService.addIngredients(ingredients)
     }
