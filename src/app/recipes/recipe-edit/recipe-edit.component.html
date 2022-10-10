@@ -70,16 +70,18 @@
                             class="form-control">
                         </div>
                         <div class="col-xs-2">
-                            <button class="btn btn-danger">
+                            <button type="button" class="btn btn-danger" (click)="onDeleteIngredient(i)">
                                 X
                             </button>
                         </div>
                     </div>
                 </div>
                 <hr>
-                <div class="row col-xs-12">
-                    <button type="button" class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
-                </div>
+
+            </div>
+
+            <div class="row col-xs-12">
+                <button type="button" class="btn btn-success" (click)="onAddIngredient()" style="margin-top: 10px;">Add Ingredient</button>
             </div>
         </form>
     </div>
