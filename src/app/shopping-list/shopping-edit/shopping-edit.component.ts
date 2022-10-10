@@ -31,11 +31,22 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   onAddItem(form: NgForm) {
-
     const newIngredient = new Ingredient(form.value.name, form.value.quantity);
     if (this.editMode)
       this.shoppingListService.updateIngredient(this.editItemIndex, newIngredient)
     else
       this.shoppingListService.addIngredient(newIngredient);
+
+    this.form.reset();
+    this.editMode = false
+  }
+  onClear(){
+    this.form.reset();
+    this.editMode = false
+  }
+  onDelete(){
+    this.shoppingListService.removeIngredient(this.editItemIndex)
+    this.form.reset();
+    this.editMode = false
   }
 }
