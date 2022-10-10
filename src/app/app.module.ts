@@ -10,7 +10,6 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModel } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
 
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -41,7 +40,7 @@ import { RecipeService } from './recipes/recipe.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService,RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
