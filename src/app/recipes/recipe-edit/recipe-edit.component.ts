@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute,Params } from '@angular/router';
+import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -21,8 +22,24 @@ export class RecipeEditComponent implements OnInit {
       this.initForm();
     })
   }
-  onSubmit(){
-    console.log(this.recipeForm)
+  onSubmit(){ 
+    // Building the object is not necessary when using ReactiveForms
+    // 
+    // const newRecipe = new Recipe(
+    //   this.recipeForm.value['name'],
+    //   this.recipeForm.value['description'],
+    //   this.recipeForm.value['imageUrlUrl'],
+    //   this.recipeForm.value['ingredients']
+    // );
+
+    if (this.editMode){
+      //this.recipeService.updateRecipe(this.id,newRecipe)
+      this.recipeService.updateRecipe(this.id,this.recipeForm.value)
+    }else{
+      this.recipeService.addRecipe(this.recipeForm.value)
+      //this.recipeService.addRecipe(newRecipe)
+    }
+
   }
   onAddIngredient(){
     (<FormArray>this.recipeForm.get('ingredients')).push(
@@ -58,7 +75,7 @@ export class RecipeEditComponent implements OnInit {
 
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName, Validators.required),
-      'imgUrl': new FormControl(recipeImageUrl, Validators.required),
+      'imageUrl': new FormControl(recipeImageUrl, Validators.required),
       'description': new FormControl(recipeDesc, Validators.required),
       'ingredients': recipeIngredients
     })
