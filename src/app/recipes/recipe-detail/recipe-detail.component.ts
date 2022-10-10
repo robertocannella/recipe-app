@@ -10,7 +10,9 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
 
+
   currentRecipe!: Recipe;
+
   recipeId!: number;
   constructor(
     private recipeService: RecipeService,
@@ -26,7 +28,11 @@ export class RecipeDetailComponent implements OnInit {
   onEditRecipe(){
     this.router.navigate(['edit'], {relativeTo: this.route})
   }
+  onDeleteRecipe(){
+    this.recipeService.deleteRecipe(this.recipeId)
+    this.router.navigate(['/recipes']);
+  }
   addToShoppingList(){
-    this.recipeService.addIngredients(this.currentRecipe.ingredients)
+    this.recipeService.addIngredients(this.currentRecipe.ingredients);
   }
 }
