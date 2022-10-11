@@ -1,12 +1,14 @@
 
-<div class="row vertical-align">
-    <div class="col-xs-8">
+<div class="row" >
+    <div class="col-xs-12">
         <h1> {{ currentRecipe.name}}</h1>
     </div>
-
-    <div class="col-xs-2">
+</div>
+<div class="row"style="margin-bottom: 1rem;">
+    
+    <div class="col-xs-12">
         <div class="btn-group" appDropdown>
-            <button class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"> </span></button>
+            <button class="btn btn-primary dropdown-toggle">Options <span class="caret"> </span></button>
             <ul class="dropdown-menu">
                 <li><a (click)="addToShoppingList()" style="cursor: pointer;">Add to Shopping List</a></li>
                 <li><a (click)="onEditRecipe()" style="cursor: pointer;">Edit Recipe</a></li>
@@ -14,9 +16,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-xs-2">
 
-    </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
